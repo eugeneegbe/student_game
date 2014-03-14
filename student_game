@@ -1,0 +1,220 @@
+
+package studentgame;
+
+//**************************************
+//this is a random genrator for a test
+//for any child who likes to study the 
+//random questions         
+//**************************************
+
+import java.util.Random;//import the random class
+import java.util.Scanner;
+public class StudentGame {
+
+
+    public static void main(String[] args) {
+    int answer ,control=0,tables;
+    int number1,number2;
+    int powerAnswer,controlall=0;
+    double quot=0.0;
+    //use the new to geerate the random numbers 
+    
+ Random generate = new Random();
+  //use the genrate name to assigh the numbers specifying 
+ //how may numbers will be generated
+  
+ Scanner input = new Scanner(System.in);
+    System.out.println("|------------------------------------------------|"); 
+    System.out.println("\n WELCOME TO THE SIMPLE TEST APLLICATION\n");
+    System.out.println("\n  ENTER 0 TO EXIT OR ANY OTHER NUMBER TO START\n");
+    System.out.println("|------------------------------------------------|"); 
+    controlall = input.nextInt();
+  while(controlall != 0 ){ 
+       
+    System.out.println("\n|----------------------------|");  
+    System.out.println("|  1) test on power          |");
+    System.out.println("|  2) test on addition       |");
+    System.out.println("|  3) test on multiplication |");
+    System.out.println("|  4) test on Quotient       |");
+    System.out.println("|----------------------------|\n"); 
+
+       System.out.println("\n ENTER YOUR CHOICE FROM THE ABOVE TABLE\n");
+       tables = input.nextInt();
+       
+  switch(tables){
+  
+      case 1:
+          int con1,countp=0,countqp=0;
+      System.out.println("|---------------------------------------------------|"); 
+      System.out.println("\n WELCOME TO THE POWER TABLE\n");
+      System.out.println("\n ENTER 0 TO STOP OR ANY OTHER NUMBER TO CONTINUE \n");
+      System.out.println("|---------------------------------------------------|"); 
+      con1 = input.nextInt(); 
+       while(con1 != 0){
+           
+       //GENERATE THE NUMBERS AT THIS LEVEL
+           
+       number1= 1 + 2 * generate.nextInt(15);      
+       number2 = 1+ 2 *generate.nextInt(10);
+           
+      System.out.printf("what is %d raised to the power %d\n",number1, number2);
+      countqp++;
+      powerAnswer = input.nextInt();
+      if(powerAnswer == givePower(number1,number2) )
+     {
+      correct();
+      countp++;
+     }
+  
+ else{
+        wrong();
+     }
+   System.out.println("\n ENTER 0 TO STOP OR ANY OTHER NUMBER TO CONTINUE \n");
+   con1 = input.nextInt(); 
+       
+       }//end while for case 1
+  System.out.printf("\nYOU SCORED %d point(s)\n out of %d",countp,countqp);
+   break;
+   case 2:
+          int con2,counta=0,countqa=0;
+      System.out.println("|---------------------------------------------------|");      
+      System.out.println("\n WELCOME TO THE ADDITION TABLE\n");
+      System.out.println("\n ENTER 0 TO STOP OR ANY OTHER NUMBER TO CONTINUE \n");
+     System.out.println("|----------------------------------------------------|"); 
+      con2 = input.nextInt(); 
+       while(con2 != 0){
+           
+       //GENERATE THE NUMBERS AT THIS LEVEL
+           
+       number1= 1 + 2 * generate.nextInt(15);      
+       number2 = 1+ 2 *generate.nextInt(10);
+           
+      System.out.printf("what is %d + %d\n",number1, number2);
+      countqa++;
+      powerAnswer = input.nextInt();
+      if(powerAnswer == giveSum(number1,number2) )
+     {
+      correct();
+      counta++;
+     }
+  
+ else{
+        wrong();
+     }
+   System.out.println("\n ENTER 0 TO STOP OR ANY OTHER NUMBER TO CONTINUE \n");
+   con2 = input.nextInt(); 
+       
+       }//end while for case 2 
+   System.out.printf("\nYOU SCORED %d points out of %d\n",counta,countqa);     
+ break;      
+ case 3:
+          int con3,countm=0,countqm=0;
+      System.out.println("|--------------------------------------------------|");     
+      System.out.println("\n WELCOME TO THE MULTIPLICATION TABLE\n");
+      System.out.println("\n ENTER 0 TO STOP OR ANY OTHER NUMBER TO CONTINUE \n");
+      System.out.println("|--------------------------------------------------|"); 
+      con3 = input.nextInt(); 
+       while(con3 != 0){
+           
+       //GENERATE THE NUMBERS AT THIS LEVEL
+           
+       number1= 1 + 2 * generate.nextInt(15);      
+       number2 = 1+ 2 *generate.nextInt(10);
+           
+      System.out.printf("what is %d times %d\n",number1, number2);
+      countqm++;
+      powerAnswer = input.nextInt();
+      if(powerAnswer == multiple(number1,number2) )
+     {
+      correct();
+      countm++;
+     }
+  
+ else{
+        wrong();
+     }
+   System.out.println("\n ENTER 0 TO STOP OR ANY OTHER NUMBER TO CONTINUE \n");
+   con3 = input.nextInt(); 
+     
+       }//end while
+   System.out.printf("\nYOU SCORED %d points out of %d\n",countm,countqm);     
+  break;        
+    case 4:
+          int con4,countd=0,countqd=0;
+      System.out.println("|---------------------------------------------------|");      
+      System.out.println("\n WELCOME TO THE DIVISION TABLE\n");
+      System.out.println("\n ENTER 0 TO STOP OR ANY OTHER NUMBER TO CONTINUE \n");
+      System.out.println("|---------------------------------------------------|");  
+      con4 = input.nextInt(); 
+       while(con4 != 0){
+           
+       //GENERATE THE NUMBERS AT THIS LEVEL
+           
+       number1= 4 * generate.nextInt(15);      
+       number2 =2 *generate.nextInt(10);
+           
+      System.out.printf("what is %d / %d\n",number1, number2);
+     countqd++;
+      quot = input.nextDouble();
+      if(quot == giveQuotient(number1,number2) )
+     {
+      correct();
+      countd++;
+     }
+  
+ else{
+        wrong();
+     }
+   System.out.println("\n ENTER 0 TO STOP OR ANY OTHER NUMBER TO CONTINUE \n");
+   con4 = input.nextInt(); 
+       
+       }//end while
+ System.out.printf("\nYOU SCORED %d points out of %d\n",countd,countqd);       
+ break;       
+   //set the default statement
+    default : 
+        System.out.println("PLEASE ENTER THE CORRECT CHOICE \n");
+        tables = input.nextInt();
+        ///ensure that the switch continues
+        
+  }//end switch     
+  
+  
+  }//end all while
+  
+ System.out.println("THANKS FOR USING THIS APPLICATION\n");
+ }//end main 
+
+ static double givePower(double a, double b){
+   
+ return Math.pow(a, b);
+}//end power method
+ 
+ static double giveSum(double a, double b){
+ 
+ return a+b;
+ }//end sum method 
+     
+ static double multiple(double a,double b){
+ 
+ return a * b;
+ }//end product method 
+ 
+ static double giveQuotient(double a , double b){
+ double q = a/b;
+ return q;
+ }//end quotient method
+ 
+static void correct(){
+    System.out.println("|------------------|"); 
+    System.out.println("| CORRECT ANSWER!!!  |");
+    System.out.println("|------------------|\n");
+}//end answer method
+
+static void wrong(){
+    System.out.println("|------------------|");  
+    System.out.println("|  WRONG ANSWER    |");
+    System.out.println("|------------------|\n");
+}//end answer method
+
+}//end class
